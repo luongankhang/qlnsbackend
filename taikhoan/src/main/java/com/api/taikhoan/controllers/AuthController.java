@@ -20,4 +20,9 @@ public class AuthController {
     public ResponseEntity<ResponseMessage> login(@RequestBody TaiKhoanDto taiKhoanDto) {
         return ResponseEntity.ok(taiKhoanService.login(taiKhoanDto));
     }
+
+    @PostMapping("/register")
+    public ResponseEntity<ResponseMessage> register(@RequestBody TaiKhoanDto taiKhoanDto) {
+        return ResponseEntity.ok(taiKhoanService.register(taiKhoanDto));
+    }
 }

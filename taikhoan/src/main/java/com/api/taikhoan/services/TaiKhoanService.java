@@ -1,6 +1,8 @@
 package com.api.taikhoan.services;
 
 import com.api.taikhoan.dtos.TaiKhoanDto;
+import com.api.taikhoan.models.Role;
+import com.api.taikhoan.models.TaiKhoan;
 import com.api.taikhoan.repositories.TaiKhoanReposirory;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -22,5 +24,15 @@ public class TaiKhoanService {
                     }
                 })
                 .orElseThrow(() -> new EntityNotFoundException("Tài khoản hoặc mật khẩu không chính xác."));
+    }
+
+    public ResponseMessage register(TaiKhoanDto taiKhoanDto) {
+        var obj = TaiKhoan.builder()
+                .username(taiKhoanDto.getUsername())
+                .password(PasswordUtils.hashPassword(taiKhoanDto.getPassword()))
+                .role(Role.ADMIN)
+                .build();
+        var saved = taiKhoanReposirory.save(obj);
+        return ResponseMessage.builder().message("Đăng ký tài khoản thành công").data("user").build();
     }
 }

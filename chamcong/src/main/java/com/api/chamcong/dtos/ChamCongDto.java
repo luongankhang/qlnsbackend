@@ -15,6 +15,5 @@ import java.util.UUID;
 public class ChamCongDto {
     private UUID chamCongId;
     private String nhanVienId;
-    private String nvofpbId;
     private BigDecimal tienLuong;
 }

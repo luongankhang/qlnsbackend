@@ -25,9 +25,6 @@ public class ChamCong {
     @Column(name = "nhanVienId")
     private String nhanVienId;
 
-    @Column(name = "nvofpbId")
-    private String nvofpbId;
-
     @Column(name = "tienLuong")
     private BigDecimal tienLuong;
 }

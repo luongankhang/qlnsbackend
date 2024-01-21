@@ -18,7 +18,6 @@ public class ChamCongService {
         final var chamCong = ChamCong
                 .builder()
                 .nhanVienId(chamCongDto.getNhanVienId())
-                .nvofpbId(chamCongDto.getNvofpbId())
                 .tienLuong(chamCongDto.getTienLuong())
                 .build();
         final var luuChamCong = chamCongRepository.save(chamCong);
