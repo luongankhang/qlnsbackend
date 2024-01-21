@@ -33,6 +33,6 @@ public class TaiKhoanService {
                 .role(Role.ADMIN)
                 .build();
         var saved = taiKhoanReposirory.save(obj);
-        return ResponseMessage.builder().message("Đăng ký tài khoản thành công").data("user").build();
+        return ResponseMessage.builder().message("Đăng ký tài khoản thành công").data(obj.getRole()).build();
     }
 }
